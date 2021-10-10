@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\sulea\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\sulea\\.nuget\\packages"
+    ]
+  }
+}
