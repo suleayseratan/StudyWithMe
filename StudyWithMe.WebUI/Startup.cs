@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
-using StudyWithMe.
+using StudyWithMe.Business.Abstract;
+using StudyWithMe.Business.Concrete;
+using StudyWithMe.DataAccess.Abstract;
 using StudyWithMe.DataAccess.Concrete.EfCore;
 
 namespace studyWithMe.WebUI
@@ -25,10 +28,12 @@ namespace studyWithMe.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<StudyWithMeContext>(options => options.UseSqlServer(_configuration.GetConnectionString("MsSqlConnection")));
-        
+            
+            services.AddScoped<IUnitOfWork,UnitOfWork>();
+            
             services.AddControllersWithViews();
         }
-
+        
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

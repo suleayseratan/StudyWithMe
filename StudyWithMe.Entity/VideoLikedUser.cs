@@ -8,6 +8,7 @@ namespace StudyWithMe.Entity
     public class VideoLikedUser
     {
         public int VideoId { get; set; }
+        public StudyVideo StudyVideo {get; set;}
         public int UserId { get; set; }
 
     }
