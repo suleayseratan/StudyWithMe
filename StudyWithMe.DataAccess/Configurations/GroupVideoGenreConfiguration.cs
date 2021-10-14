@@ -13,6 +13,15 @@ namespace StudyWithMe.DataAccess.Configurations
         public void Configure(EntityTypeBuilder<GroupVideoGenre> builder)
         {
             builder.HasKey(v=> new {v.GenreId, v.GroupId});
+            
+            builder
+            .HasOne<GroupVideoDetail>(vg => vg.GroupVideoDetail)
+            .WithMany(s => s.GroupVideoGenres)
+            .HasForeignKey(vg => vg.GroupId);
+
+            builder.HasOne<Genre>(g => g.Genre)
+            .WithMany(g => g.GroupVideoGenres)
+            .HasForeignKey(vg => vg.GenreId);
         }
     }
 }

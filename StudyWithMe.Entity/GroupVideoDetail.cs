@@ -11,5 +11,7 @@ namespace StudyWithMe.Entity
         public int BroadcastingId { get; set; }
         public string Description { get; set; }
         public int MaxUsersCount { get; set; }
+
+        public IList<GroupVideoGenre> GroupVideoGenres {get; set;}
     }
 }

@@ -9,5 +9,7 @@ namespace StudyWithMe.Entity
     {
         public int GenreId { get; set; }
         public string Name { get; set; }
+        public IList<GroupVideoGenre> GroupVideoGenres {get; set;}
+
     }
 }

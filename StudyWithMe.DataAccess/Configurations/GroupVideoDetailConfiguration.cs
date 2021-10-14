@@ -12,7 +12,7 @@ namespace StudyWithMe.DataAccess.Configurations
     {
         public void Configure(EntityTypeBuilder<GroupVideoDetail> builder)
         {
-            builder.HasKey(v=>v.GroupVideoId);
+            builder.HasKey(v=>v.GroupVideoId).HasName("GroupVideoId");
         }
     }
 }
