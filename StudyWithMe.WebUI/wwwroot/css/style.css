@@ -1,0 +1,13 @@
+.bg-purple{
+    background-color: #7027A0;
+}
+.avatar {
+    vertical-align: middle;
+    width: 3rem !important;
+    height: 3rem !important;
+    border-radius: 50%;
+  }
+
+nav-fixed{
+    width: 20% !important;
+}

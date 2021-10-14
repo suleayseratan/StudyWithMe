@@ -74,3 +74,6 @@ H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\bin\Debug\net5.0\StudyWithMe
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\bin\Debug\net5.0\StudyWithMe.Entity.pdb
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\bin\Debug\net5.0\Humanizer.dll
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views\Shared\_navbar.cshtml.g.cs
