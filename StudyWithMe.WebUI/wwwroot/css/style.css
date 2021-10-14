@@ -1,6 +1,9 @@
 .bg-purple{
     background-color: #7027A0;
 }
+.bg-my-blue{
+    background-color: #0da18e;
+}
 .avatar {
     vertical-align: middle;
     width: 3rem !important;

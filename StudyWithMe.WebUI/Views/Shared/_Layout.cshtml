@@ -9,11 +9,15 @@
     <link rel="stylesheet" href="~/css/style.css">
     <title>StudyWithMe</title>
 </head>
+
 <body>
     @await Html.PartialAsync("_navbar")
-    @RenderBody()
+
+    <div class="row row-cols-1 row-cols-md-1 g-4">
+        @RenderBody()
+    </div>
 </body>
-<footer>
+<footer class="bg-purple">
     Study With Me
 </footer>
 

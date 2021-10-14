@@ -1,0 +1,23 @@
+<div class="col">
+    @* <div class="w-100">
+        <img src="~/images/studyimage2.jpg" alt="seperator">
+    </div> *@
+</div>
+<div class="col">
+    <div class="container bg-3 text-center">
+        <div class="mt-5">
+            <h3>Group Rooms</h3><br>
+        </div>
+        @await Html.PartialAsync("_videoCard")
+
+        <div class="mt-5">
+            <h3>Live Rooms</h3><br>
+        </div>
+        @await Html.PartialAsync("_videoCard")
+
+        <div class="mt-5">
+            <h3>Streaming Videos</h3><br>
+        </div>
+        @await Html.PartialAsync("_videoCard")
+    </div>
+</div>

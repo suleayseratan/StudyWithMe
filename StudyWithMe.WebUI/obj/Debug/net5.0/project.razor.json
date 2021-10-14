@@ -15629,6 +15629,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "h:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\Views\\Shared\\_videoCard.cshtml",
+      "TargetPath": "Views\\Shared\\_videoCard.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "h:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
