@@ -11,7 +11,6 @@ H:\My-Github-Projects\StudyWithMe\StudyWithMe.Business\obj\Debug\net5.0\StudyWit
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.Business\obj\Debug\net5.0\StudyWithMe.Business.AssemblyInfoInputs.cache
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.Business\obj\Debug\net5.0\StudyWithMe.Business.AssemblyInfo.cs
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.Business\obj\Debug\net5.0\StudyWithMe.Business.csproj.CoreCompileInputs.cache
-H:\My-Github-Projects\StudyWithMe\StudyWithMe.Business\obj\Debug\net5.0\StudyWithMe.Business.csproj.CopyComplete
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.Business\obj\Debug\net5.0\StudyWithMe.Business.dll
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.Business\obj\Debug\net5.0\ref\StudyWithMe.Business.dll
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.Business\obj\Debug\net5.0\StudyWithMe.Business.pdb

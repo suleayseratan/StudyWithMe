@@ -11,7 +11,6 @@ H:\My-Github-Projects\StudyWithMe\StudyWithMe.DataAccess\obj\Debug\net5.0\StudyW
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.DataAccess\obj\Debug\net5.0\StudyWithMe.DataAccess.AssemblyInfoInputs.cache
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.DataAccess\obj\Debug\net5.0\StudyWithMe.DataAccess.AssemblyInfo.cs
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.DataAccess\obj\Debug\net5.0\StudyWithMe.DataAccess.csproj.CoreCompileInputs.cache
-H:\My-Github-Projects\StudyWithMe\StudyWithMe.DataAccess\obj\Debug\net5.0\StudyWithMe.DataAccess.csproj.CopyComplete
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.DataAccess\obj\Debug\net5.0\StudyWithMe.DataAccess.dll
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.DataAccess\obj\Debug\net5.0\ref\StudyWithMe.DataAccess.dll
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.DataAccess\obj\Debug\net5.0\StudyWithMe.DataAccess.pdb

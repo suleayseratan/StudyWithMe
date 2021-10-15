@@ -9,8 +9,14 @@
     width: 3rem !important;
     height: 3rem !important;
     border-radius: 50%;
-  }
+}
 
-nav-fixed{
-    width: 20% !important;
+.carouselSize
+{
+    height: 30rem !important;
+}
+
+hr.rounded {
+    border-top: 8px solid #0da18e;
+    border-radius: 5px;
 }

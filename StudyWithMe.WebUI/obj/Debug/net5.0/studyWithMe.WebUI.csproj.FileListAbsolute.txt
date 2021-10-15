@@ -78,3 +78,4 @@ H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views\Shared\_navbar.cshtml.g.cs
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views\Shared\_videoCard.cshtml.g.cs
+H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views\Shared\_carousel.cshtml.g.cs
