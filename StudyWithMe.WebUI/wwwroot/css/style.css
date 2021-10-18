@@ -4,6 +4,10 @@
 .bg-my-blue{
     background-color: #0da18e;
 }
+.bg-pink
+{
+    background-color: #F56FAD;
+}
 .avatar {
     vertical-align: middle;
     width: 3rem !important;

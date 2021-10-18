@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kBAHd2MsinAi2mgWayIDf5dNqzOZlrowP7NIarS3qs3vemxzs7T9a8ZV2HRMlNCHW9r23muisV8jvkboE8f/+Q==",
+  "dgSpecHash": "HpteptZyBkKg2BC92XFGVGJNYf6/l967X9VzXxsW+iPoWi6gA7BY70u5uDGnNq24v41YtmfbkNDa0hHLuZm+AA==",
   "success": true,
-  "projectFilePath": "H:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\studyWithMe.WebUI.csproj",
+  "projectFilePath": "H:\\My-Github-Projects\\StudyWithMe\\StudyWithME.WebUI\\studyWithMe.WebUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sulea\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\sulea\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "H:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\studyWithMe.WebUI.csproj": {}
+    "H:\\My-Github-Projects\\StudyWithMe\\StudyWithME.WebUI\\studyWithMe.WebUI.csproj": {}
   },
   "projects": {
     "H:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.Business\\StudyWithMe.Business.csproj": {
@@ -189,14 +189,14 @@
         }
       }
     },
-    "H:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\studyWithMe.WebUI.csproj": {
+    "H:\\My-Github-Projects\\StudyWithMe\\StudyWithME.WebUI\\studyWithMe.WebUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\studyWithMe.WebUI.csproj",
+        "projectUniqueName": "H:\\My-Github-Projects\\StudyWithMe\\StudyWithME.WebUI\\studyWithMe.WebUI.csproj",
         "projectName": "studyWithMe.WebUI",
-        "projectPath": "H:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\studyWithMe.WebUI.csproj",
+        "projectPath": "H:\\My-Github-Projects\\StudyWithMe\\StudyWithME.WebUI\\studyWithMe.WebUI.csproj",
         "packagesPath": "C:\\Users\\sulea\\.nuget\\packages\\",
-        "outputPath": "H:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\obj\\",
+        "outputPath": "H:\\My-Github-Projects\\StudyWithMe\\StudyWithME.WebUI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sulea\\AppData\\Roaming\\NuGet\\NuGet.Config",
