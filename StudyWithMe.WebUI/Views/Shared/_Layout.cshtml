@@ -14,16 +14,17 @@
 <body>
     @await Html.PartialAsync("_navbar")
 
-    <div class="row row-cols-1 row-cols-md-1 g-4">
+    <main>
         @RenderBody()
-    </div>
+    </main>
+
 </body>
 <footer class="bg-purple">
     Study With Me
 </footer>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="/modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
+<script src="~/js/script.js"></script>
 @RenderSection("Scripts",false)
 
 </html>
