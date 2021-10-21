@@ -24,3 +24,19 @@ hr.rounded {
     border-top: 8px solid #0da18e;
     border-radius: 5px;
 }
+
+
+/* header */
+.masthead {
+    height: 100vh;
+    min-height: 500px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* search */
+.ms-n5 {
+    margin-left: -40px;
+}
+

@@ -54,6 +54,12 @@ namespace studyWithMe.WebUI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name:"groups",
+                    pattern : "groups/{genre?}",
+                    defaults : new {controller="Group",Action="List"}
+                );
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                 );
