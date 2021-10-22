@@ -53,6 +53,19 @@ namespace studyWithMe.WebUI
 
             app.UseEndpoints(endpoints =>
             {
+
+                endpoints.MapControllerRoute(
+                    name:"streamvideos",
+                    pattern : "streamvideos/{genre?}",
+                    defaults : new {controller="Stream",Action="List"}
+                );
+
+                endpoints.MapControllerRoute(
+                    name:"livevideos",
+                    pattern : "livevideos/{genre?}",
+                    defaults : new {controller="Live",Action="List"}
+                );
+
                 endpoints.MapControllerRoute(
                     name:"groups",
                     pattern : "groups/{genre?}",

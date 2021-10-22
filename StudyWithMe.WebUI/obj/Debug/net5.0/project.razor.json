@@ -15619,8 +15619,18 @@
   "RootNamespace": "studyWithMe.WebUI",
   "Documents": [
     {
+      "FilePath": "h:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\Views\\Live\\List.cshtml",
+      "TargetPath": "Views\\Live\\List.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "h:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\Views\\Shared\\_navbar.cshtml",
       "TargetPath": "Views\\Shared\\_navbar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "h:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\Views\\Stream\\List.cshtml",
+      "TargetPath": "Views\\Stream\\List.cshtml",
       "FileKind": "mvc"
     },
     {
