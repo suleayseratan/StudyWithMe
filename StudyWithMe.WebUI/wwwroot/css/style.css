@@ -1,13 +1,15 @@
-.bg-purple{
+.bg-purple {
     background-color: #7027A0;
 }
-.bg-my-blue{
+
+.bg-my-blue {
     background-color: #0da18e;
 }
-.bg-pink
-{
+
+.bg-pink {
     background-color: #F56FAD;
 }
+
 .avatar {
     vertical-align: middle;
     width: 3rem !important;
@@ -15,8 +17,7 @@
     border-radius: 50%;
 }
 
-.carouselSize
-{
+.carouselSize {
     height: 30rem !important;
 }
 
@@ -25,8 +26,8 @@ hr.rounded {
     border-radius: 5px;
 }
 
-
 /* header */
+
 .masthead {
     height: 100vh;
     min-height: 500px;
@@ -36,7 +37,30 @@ hr.rounded {
 }
 
 /* search */
+
 .ms-n5 {
     margin-left: -40px;
 }
 
+/* Scrollbar */
+/* width */
+.scrollbar::-webkit-scrollbar {
+    width: 0.5rem;
+}
+  
+  /* Track */
+  .scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 2rem;
+  }
+   
+  /* Handle */
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: rgb(177, 175, 175); 
+    border-radius: 2rem;
+  }
+  
+  /* Handle on hover */
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgb(124, 123, 123); 
+  }
