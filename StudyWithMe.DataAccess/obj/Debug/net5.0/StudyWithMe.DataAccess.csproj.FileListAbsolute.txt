@@ -15,3 +15,4 @@ H:\My-Github-Projects\StudyWithMe\StudyWithMe.DataAccess\obj\Debug\net5.0\StudyW
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.DataAccess\obj\Debug\net5.0\ref\StudyWithMe.DataAccess.dll
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.DataAccess\obj\Debug\net5.0\StudyWithMe.DataAccess.pdb
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.DataAccess\obj\Debug\net5.0\StudyWithMe.DataAccess.genruntimeconfig.cache
+H:\My-Github-Projects\StudyWithMe\StudyWithMe.DataAccess\obj\Debug\net5.0\StudyWithMe.DataAccess.csproj.CopyComplete

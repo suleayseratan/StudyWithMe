@@ -84,3 +84,4 @@ H:\My-Github-Projects\StudyWithMe\StudyWithME.WebUI\obj\Debug\net5.0\Razor\Views
 H:\My-Github-Projects\StudyWithMe\StudyWithME.WebUI\obj\Debug\net5.0\Razor\Views\Shared\_filtering.cshtml.g.cs
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views\Live\List.cshtml.g.cs
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views\Stream\List.cshtml.g.cs
+H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views\Settings\Setting.cshtml.g.cs

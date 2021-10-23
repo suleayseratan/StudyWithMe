@@ -53,6 +53,11 @@ namespace studyWithMe.WebUI
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name:"settings",
+                    pattern : "settings",
+                    defaults : new {controller="Settings",Action="Setting"}
+                );
 
                 endpoints.MapControllerRoute(
                     name:"streamvideos",

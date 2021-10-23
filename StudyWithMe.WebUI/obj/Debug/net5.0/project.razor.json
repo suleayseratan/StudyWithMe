@@ -15677,6 +15677,11 @@
       "FilePath": "h:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "h:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\Views\\Settings\\Setting.cshtml",
+      "TargetPath": "Views\\Settings\\Setting.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.2"
