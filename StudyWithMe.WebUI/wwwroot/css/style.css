@@ -32,6 +32,14 @@ html, body {
     border-radius: 50%;
 }
 
+.settings-avatar
+{
+    vertical-align: middle;
+    width: 50% !important;
+    height: 50% !important;
+    border-radius: 50%;
+}
+
 .carouselSize {
     height: 30rem !important;
 }
