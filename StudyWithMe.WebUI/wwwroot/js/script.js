@@ -1,6 +1,6 @@
 $(document).ready(function () {
   // member range
-  $('#memberRange').val(1).on('input',function () {
+  $('#memberRange').val(1).on('input', function () {
     var memberRangeValue = $(this).val();
     $('#rangeValue').html(memberRangeValue);
   });

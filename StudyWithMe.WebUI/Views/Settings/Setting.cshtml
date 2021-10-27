@@ -1,56 +1,59 @@
+@section Css{
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sidebars/">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+}
 <div class="row">
-    <div class="col-lg-3 col-md-4 d-md-block">
+    <div class="col-md-3 col-sm-4">
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-            <div class="d-flex text-center text-align-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                <img src="~/images/imgavatar.png" alt="..." id="settings-profile-image" class="rounded-circle">
-                
-            </div>
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap" />
+                </svg>
+                <span class="fs-4">Sidebar</span>
+            </a>
             <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
+            <ul class="nav nav-pills flex-column mb-auto" role="tablist" aria-orientation="vertical">
+                <li class="nav-item active">
+                    <a id="profile" href="#tab-profile" class="nav-link" data-toggle="pill" role="tab"
+                        aria-controls="profile" aria-selected="true">
+                        <i class="fas fa-user"></i>
+                        Profile
+                    </a>
+                </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link active" aria-current="page">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#home" />
-                        </svg>
-                        Home
+                    <a id="privacy" href="#tab-privacy" class="nav-link link-dark" data-toggle="pill" role="tab"
+                        aria-controls="privacy" aria-selected="false">
+                        <i class="fas fa-lock"></i>
+                        Privacy & Security
                     </a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a href="#" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#speedometer2" />
-                        </svg>
-                        Dashboard
+                        <i class="fas fa-bell"></i>
+                        Notifications
                     </a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a href="#" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#table" />
-                        </svg>
-                        Orders
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#grid" />
-                        </svg>
-                        Products
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#people-circle" />
-                        </svg>
-                        Customers
+                        <i class="fas fa-video"></i>
+                        Broadcasting
                     </a>
                 </li>
             </ul>
         </div>
     </div>
-    <div class="col-md-8">
-
+    <div class="col-md-9 col-sm-8">
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="tab-profile" role="tabpanel" aria-labelledby="profile">
+                <h1>Profile Settings</h1>
+            </div>
+            <div class="tab-pane fade" id="tab-privacy" role="tabpanel" aria-labelledby="privacy">
+                <h1>Privacy Settings</h1>
+            </div>
+        </div>
     </div>
 </div>
+
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+}

@@ -13,14 +13,14 @@
 
 <body>
     @await Html.PartialAsync("_navbar")
-
     <main>
         @RenderBody()
     </main>
-
 </body>
-<footer class="bg-purple">
-    Study With Me
+<footer class="footer mt-auto py-3 bg-purple">
+  <div class="container">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="/modules/bootstrap/dist/js/bootstrap.min.js"></script>

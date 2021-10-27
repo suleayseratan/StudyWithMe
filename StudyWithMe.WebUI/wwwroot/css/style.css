@@ -1,3 +1,18 @@
+html, body {
+    height: 100%;
+}
+
+/* Sticky Footer */
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: white;
+   text-align: center;
+}
+
+/* bg color */
 .bg-purple {
     background-color: #7027A0;
 }
@@ -77,13 +92,31 @@ hr.rounded {
 }
 
 /* Settings Nav Title */
-#settings-profile-image
-{
+
+#settings-profile-image {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 50%; 
+    height: 50%;
     width: 50%;
+}
+
+#settings-list {
+    font-weight: 600;
+    font-size: large;
+}
+
+#settings-list a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, .85);
+    padding: auto;
+}
+
+#settings-list a i {
+    padding-right: 2rem;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
 }
 
 .bi {
