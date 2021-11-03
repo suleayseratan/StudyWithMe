@@ -12,8 +12,36 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
+#nullable restore
+#line 2 "H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\Views\_ViewImports.cshtml"
+using StudyWithMe.Entity;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\Views\_ViewImports.cshtml"
+using StudyWithMe.WebUI.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\Views\_ViewImports.cshtml"
+using StudyWithMe.WebUI.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5a55e7c8d17bb5e2b509c30ca330d4ef7ba6af4d", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c66e443ba81bfd444e2b1c1ae94c4deedf2b8d44", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0b54657acc42eebbdf3311780921b3333c121774", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/images/live1.png"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -94,7 +122,7 @@ Write(await Html.PartialAsync("_carousel"));
                                 <div class=""card shadow p-3 mb-5 bg-body rounded"" style=""border-radius: 15px;"">
                                     <div class=""card-body"">
                                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5a55e7c8d17bb5e2b509c30ca330d4ef7ba6af4d6084", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5a55e7c8d17bb5e2b509c30ca330d4ef7ba6af4d6849", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -121,7 +149,7 @@ Write(await Html.PartialAsync("_carousel"));
                                 <div class=""card shadow p-3 mb-5 bg-body rounded"" style=""border-radius: 15px;"">
                                     <div class=""card-body"">
                                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5a55e7c8d17bb5e2b509c30ca330d4ef7ba6af4d7872", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5a55e7c8d17bb5e2b509c30ca330d4ef7ba6af4d8637", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -181,7 +209,7 @@ Write(await Html.PartialAsync("_carousel"));
                                 <div class=""card shadow p-3 mb-5 bg-body rounded"" style=""border-radius: 15px;"">
                                     <div class=""card-body"">
                                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5a55e7c8d17bb5e2b509c30ca330d4ef7ba6af4d10839", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5a55e7c8d17bb5e2b509c30ca330d4ef7ba6af4d11604", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -208,7 +236,7 @@ Write(await Html.PartialAsync("_carousel"));
                                 <div class=""card shadow p-3 mb-5 bg-body rounded"" style=""border-radius: 15px;"">
                                     <div class=""card-body"">
                                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5a55e7c8d17bb5e2b509c30ca330d4ef7ba6af4d12628", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5a55e7c8d17bb5e2b509c30ca330d4ef7ba6af4d13393", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

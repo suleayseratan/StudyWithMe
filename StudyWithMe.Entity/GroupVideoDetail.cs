@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using StudyWithMe.Entity.Abstract;
 
 namespace StudyWithMe.Entity
 {
-    public class GroupVideoDetail
+    public class GroupVideoDetail : IEntity
     {
         public int GroupVideoId { get; set; }
         public int BroadcastingId { get; set; }

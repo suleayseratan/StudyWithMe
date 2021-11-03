@@ -52,7 +52,7 @@ namespace studyWithMe.WebUI
                 // user
                 // options.User.AllowedUserNameCharacters = ""; --> kullanıcının şifresinin nelerden oluşup oluşmayacağına akrar vermek için kullanılır.
                 options.User.RequireUniqueEmail = true; // Her kullanıcının bir tane mail adresi olmalıdır.
-                options.SignIn.RequireConfirmedEmail = true; // Kullancı giriş yapabilmesi için mail adresinin onaylı olamsı gerekir.
+                options.SignIn.RequireConfirmedEmail = false; // Kullancı giriş yapabilmesi için mail adresinin onaylı olamsı gerekir.
             });
 
             services.ConfigureApplicationCookie(options => {
@@ -92,10 +92,18 @@ namespace studyWithMe.WebUI
 
             app.UseAuthentication();
             app.UseRouting();
+            app.UseAuthorization();
 
 
             app.UseEndpoints(endpoints =>
             {
+                // Account
+                // endpoints.MapControllerRoute(
+                //     name:"register",
+                //     pattern:"account/register",
+                //     defaults: new {controller="Account", Action="Register"}
+                // );
+
                 endpoints.MapControllerRoute(
                     name:"settings",
                     pattern : "settings",

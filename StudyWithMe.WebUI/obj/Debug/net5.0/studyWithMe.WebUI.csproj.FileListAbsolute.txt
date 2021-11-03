@@ -90,3 +90,5 @@ H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\bin\Debug\net5.0\Microsoft.A
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs

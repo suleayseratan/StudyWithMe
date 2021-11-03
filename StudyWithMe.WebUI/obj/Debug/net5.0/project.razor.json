@@ -15649,6 +15649,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "h:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\Views\\Account\\Login.cshtml",
+      "TargetPath": "Views\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "h:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\Views\\Account\\Register.cshtml",
+      "TargetPath": "Views\\Account\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "h:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\Views\\Shared\\_categories.cshtml",
       "TargetPath": "Views\\Shared\\_categories.cshtml",
       "FileKind": "mvc"

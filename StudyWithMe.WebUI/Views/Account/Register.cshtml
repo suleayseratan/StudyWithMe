@@ -1,0 +1,38 @@
+@model RegisterModel
+
+@* Login Form *@
+<div class="container main-bg">
+    <div class="row justify-content-conter mt-5">
+        <div class="col-lg-4 col-md-8 col-sm-8">
+            <div class="card">
+                <div class="card-title text-center border-bottom">
+                    <h2 class="p-3">Login</h2>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="mb-4">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" name="username" id="username">
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="text" name="form-control" id="password">
+                        </div>
+                        @* <div class="mb-4">
+                            <input type="checkbox" class="form-check-input" name="remember" id="remember">
+                            <label for="remember">Remember Me</label>
+                        </div> *@
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Css{
+    
+}
