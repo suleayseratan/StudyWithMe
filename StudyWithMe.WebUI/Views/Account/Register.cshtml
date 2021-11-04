@@ -1,38 +1,68 @@
 @model RegisterModel
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="~/images/bg1.png" class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <form asp-controller="Account" asp-action="Register" method="POST">
+                    <div class="divider d-flex align-items-center my-4">
+                        <h2>Create An Account</h2>
+                    </div>
 
-@* Login Form *@
-<div class="container main-bg">
-    <div class="row justify-content-conter mt-5">
-        <div class="col-lg-4 col-md-8 col-sm-8">
-            <div class="card">
-                <div class="card-title text-center border-bottom">
-                    <h2 class="p-3">Login</h2>
-                </div>
-                <div class="card-body">
-                    <form>
-                        <div class="mb-4">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" name="username" id="username">
-                        </div>
-                        <div class="mb-4">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="text" name="form-control" id="password">
-                        </div>
-                        @* <div class="mb-4">
-                            <input type="checkbox" class="form-check-input" name="remember" id="remember">
-                            <label for="remember">Remember Me</label>
-                        </div> *@
+                    <div asp-validation-summary="All" class="text-danger"></div>
 
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">Register</button>
-                        </div>
-                    </form>
-                </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label fs-5" asp-for="FirstName"></label>
+                        <input asp-for="FirstName" class="form-control form-control-lg" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label fs-5" asp-for="LastName"></label>
+                        <input type="text" asp-for="LastName" class="form-control form-control-lg" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label fs-5" asp-for="UserName"></label>
+                        <input asp-for="UserName" class="form-control form-control-lg" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label fs-5" asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control form-control-lg" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label fs-5" asp-for="Password"></label>
+                        <input asp-for="Password" class="form-control form-control-lg" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label fs-5" asp-for="RePassword"></label>
+                        <input asp-for="RePassword" class="form-control form-control-lg" />
+                        <span asp-validation-for="RePassword" class="text-danger"></span>
+                    </div>
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <button type="submit" class="btn bg-my-blue btn-lg"
+                            style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Do have an account? <a href="#!"
+                                class="link-danger">Login</a></p>
+                    </div>
+
+                </form>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-@section Css{
-    
+@section Scripts{
+<script src="/modules/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+
 }

@@ -8,21 +8,27 @@ namespace StudyWithMe.WebUI.Models
 {
     public class RegisterModel
     {
-        [Required]
+        [Required]        
         public string FirstName { get; set; }
-        [Required]
+
+        [Required] 
         public string LastName { get; set; }
-        [Required]
+
+        [Required] 
         public string UserName { get; set; }
-        [Required]
+
+        [Required] 
         [DataType(DataType.Password)]
         public string Password { get; set; }
-        [Required]
+        
+        [Required] 
         [DataType(DataType.Password)]
-        public string RePassword { get; set; }
-        [Required]
-        [DataType(DataType.EmailAddress)]
         [Compare("Password")]
+        public string RePassword { get; set; }
+    
+    
+        [Required] 
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
     }
 }

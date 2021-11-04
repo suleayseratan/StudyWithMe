@@ -1,0 +1,61 @@
+@model LoginModel
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="~/images/bg1.png" class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <form asp-controller="Account" asp-action="Login" method="POST">
+                    <div class="divider d-flex align-items-center my-4">
+                        <h2>Login</h2>
+                    </div>
+
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label fs-5" asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control form-control-lg"/>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-3">
+                        <label class="form-label fs-5" asp-for="Password"></label>
+                        <input asp-for="Password" class="form-control form-control-lg"/>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    @* <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start
+                        mb-4">
+                        <p class="lead fw-normal mb-0 me-3">Sign in with</p>
+                        <button type="button" class="btn btn-primary btn-floating mx-1">
+                        <i class="fab fa-google"></i>
+                        </button>
+                        </div> *@
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <!-- Checkbox -->
+
+                        <div class="form-check mb-0">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                            <label class="form-check-label" for="form2Example3">
+                                Remember me
+                            </label>
+                        </div>
+                        <a href="#!" class="text-body">Forgot password?</a>
+                    </div>
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <button type="submit" class="btn bg-my-blue btn-lg"
+                            style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
+                                class="link-danger">Register</a></p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
