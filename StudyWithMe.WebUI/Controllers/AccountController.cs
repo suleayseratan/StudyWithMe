@@ -9,6 +9,7 @@ using StudyWithMe.WebUI.Models;
 
 namespace StudyWithMe.WebUI.Controllers
 {
+    [AutoValidateAntiforgeryToken] // Controller seviyesinde bir token kontolü için kullanılır
     public class AccountController : Controller
     {
         private UserManager<User> _userManager;
@@ -18,15 +19,19 @@ namespace StudyWithMe.WebUI.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-        public IActionResult Login()
+        [HttpGet]
+        public IActionResult Login(string ReturnUrl=null)
         {
-            return View();
+            return View(new LoginModel(){
+                ReturnUrl = ReturnUrl
+            });
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(model);
             }
@@ -39,14 +44,16 @@ namespace StudyWithMe.WebUI.Controllers
                 return View(model);
             }
 
-            var result = await _signInManager.PasswordSignInAsync(user,model.Password,false,false);
+            // isPersistent -> Cookie yaşam süresi
+            var result = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
 
-            if(result.Succeeded)
+            if (result.Succeeded)
             {
-                return RedirectToAction("Index","Home");
+                return Redirect(model.ReturnUrl??"/");
             }
-
-            return View();
+            
+            ModelState.AddModelError("","Wrong Password or Email");
+            return View(model);
         }
 
         [HttpGet]
@@ -56,6 +63,7 @@ namespace StudyWithMe.WebUI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken] // Form ile gönderilen token bilgisinin geri gönderilip gönderilrmediğini kontrol eder (cross site arakları için önemlidir.)
         public async Task<IActionResult> Register(RegisterModel model)
         {
             if (!ModelState.IsValid)
@@ -84,6 +92,12 @@ namespace StudyWithMe.WebUI.Controllers
             ModelState.AddModelError("", "An error occurred please try again later.");
 
             return View(model); // Eğer başarılı değilse bu sayfaya girer ve model geri döndürülür
+        }
+
+        public async Task<IActionResult> Logout(LoginModel model)
+        {
+            await _signInManager.SignOutAsync();
+            return Redirect("~/"); 
         }
     }
 }

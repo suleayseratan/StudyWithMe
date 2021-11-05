@@ -65,7 +65,8 @@ namespace studyWithMe.WebUI
                 options.ExpireTimeSpan = TimeSpan.FromDays(1); // Expiretion süresini ayarlamak için kullanılır
                 options.Cookie = new CookieBuilder{
                     HttpOnly = true, // Http talebiyle cookie kullanılır.
-                    Name = ".StudyWithMe.Security.Cookie" // Cookie ismi default olarak verilir fakat bu özellik ile cookie'nin adını değiştirebilriz.
+                    Name = ".StudyWithMe.Security.Cookie", // Cookie ismi default olarak verilir fakat bu özellik ile cookie'nin adını değiştirebilriz.
+                    SameSite = SameSiteMode.Strict, // cross site ataklarını engellemek için kullanılır
                 };
             });
             
@@ -97,13 +98,6 @@ namespace studyWithMe.WebUI
 
             app.UseEndpoints(endpoints =>
             {
-                // Account
-                // endpoints.MapControllerRoute(
-                //     name:"register",
-                //     pattern:"account/register",
-                //     defaults: new {controller="Account", Action="Register"}
-                // );
-
                 endpoints.MapControllerRoute(
                     name:"settings",
                     pattern : "settings",

@@ -7,20 +7,19 @@
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                 <form asp-controller="Account" asp-action="Login" method="POST">
+                    <input type="hidden" name="ReturnUrl" value="@Model.ReturnUrl">
                     <div class="divider d-flex align-items-center my-4">
                         <h2>Login</h2>
                     </div>
 
                     <div asp-validation-summary="All" class="text-danger"></div>
-
-                    <!-- Email input -->
                     <div class="form-outline mb-4">
                         <label class="form-label fs-5" asp-for="Email"></label>
                         <input asp-for="Email" class="form-control form-control-lg"/>
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
 
-                    <!-- Password input -->
+                
                     <div class="form-outline mb-3">
                         <label class="form-label fs-5" asp-for="Password"></label>
                         <input asp-for="Password" class="form-control form-control-lg"/>
@@ -59,3 +58,9 @@
         </div>
     </div>
 </section>
+
+@section Scripts{
+<script src="/modules/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+
+}
