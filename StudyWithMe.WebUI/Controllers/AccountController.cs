@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using StudyWithMe.WebUI.Extensions;
 using StudyWithMe.WebUI.Identity;
 using StudyWithMe.WebUI.Models;
 
@@ -20,9 +21,10 @@ namespace StudyWithMe.WebUI.Controllers
             _signInManager = signInManager;
         }
         [HttpGet]
-        public IActionResult Login(string ReturnUrl=null)
+        public IActionResult Login(string ReturnUrl = null)
         {
-            return View(new LoginModel(){
+            return View(new LoginModel()
+            {
                 ReturnUrl = ReturnUrl
             });
         }
@@ -44,15 +46,21 @@ namespace StudyWithMe.WebUI.Controllers
                 return View(model);
             }
 
+            if (!await _userManager.IsEmailConfirmedAsync(user))
+            {
+                ModelState.AddModelError("", "Please check your email address!");
+                return View(model);
+            }
+
             // isPersistent -> Cookie yaşam süresi
             var result = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
 
             if (result.Succeeded)
             {
-                return Redirect(model.ReturnUrl??"/");
+                return Redirect(model.ReturnUrl ?? "/");
             }
-            
-            ModelState.AddModelError("","Wrong Password or Email");
+
+            ModelState.AddModelError("", "Wrong Password or Email");
             return View(model);
         }
 
@@ -83,8 +91,14 @@ namespace StudyWithMe.WebUI.Controllers
             if (result.Succeeded)
             {
                 // Login sayfasına yönlendirilmeden önce bir generate tooken atanır
+                var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                var url = Url.Action("ConfirmEmail", "Account", new
+                {
+                    userId = user.Id,
+                    token = token
+                }); // Created url with token
 
-
+                Console.WriteLine(url);
                 // Eğer başarılı bir şekilde kayıt oluşursa Login sayfasına yönlendirilir.
                 return RedirectToAction("Login", "Account");
             }
@@ -97,7 +111,46 @@ namespace StudyWithMe.WebUI.Controllers
         public async Task<IActionResult> Logout(LoginModel model)
         {
             await _signInManager.SignOutAsync();
-            return Redirect("~/"); 
+            return Redirect("~/");
         }
+
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
+        {
+            if (userId == null || token == null)
+            {
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Token",
+                    Message = "Invalid Token!",
+                    AlertType = "danger"
+                });
+                return View();
+            }
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user != null)
+            {
+                var result = await _userManager.ConfirmEmailAsync(user, token);
+                if (result.Succeeded)
+                {
+                    TempData.Put("message", new AlertMessage()
+                    {
+                        Title = "Account Confirm",
+                        Message = "Your account confirmed.",
+                        AlertType = "success"
+                    });
+                    return View();
+                }
+            }
+
+            TempData.Put("message", new AlertMessage()
+            {
+                Title = "User",
+                Message = "There is no such user!",
+                AlertType = "danger"
+            });
+            return View();
+        }
+
     }
 }

@@ -2,26 +2,30 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <link rel="stylesheet" href="/modules/bootstrap/dist/css/bootstrap.min.css" crossorigin="anonymous">
-    @RenderSection("Css",false)
-    <link rel="stylesheet" href="~/css/style.css">
-    <title>StudyWithMe</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <link rel="stylesheet" href="/modules/bootstrap/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  @RenderSection("Css",false)
+  <link rel="stylesheet" href="~/css/style.css">
+  <title>StudyWithMe</title>
 </head>
 
 <body>
-    @await Html.PartialAsync("_navbar")
-    <main>
-        @RenderBody()
-    </main>
+  @await Html.PartialAsync("_navbar")
+  <main>
+    @if (TempData["message"] != null)
+    {
+      <partial name="_resultMessage" model="@(TempData.Get<AlertMessage>("message"))" />
+    }
+    @RenderBody()
+  </main>
 </body>
 @* <footer class="footer mt-auto py-3 bg-purple">
   <div class="container">
-    <span class="text-muted">Place sticky footer content here.</span>
+  <span class="text-muted">Place sticky footer content here.</span>
   </div>
-</footer> *@
+  </footer> *@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="/modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="~/js/script.js"></script>

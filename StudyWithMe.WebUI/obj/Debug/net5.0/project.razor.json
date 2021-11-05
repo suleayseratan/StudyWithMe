@@ -15634,6 +15634,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "h:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\Views\\Shared\\_resultMessage.cshtml",
+      "TargetPath": "Views\\Shared\\_resultMessage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "h:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\Views\\Shared\\_filtering.cshtml",
       "TargetPath": "Views\\Shared\\_filtering.cshtml",
       "FileKind": "mvc"
@@ -15661,6 +15666,11 @@
     {
       "FilePath": "h:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\Views\\Shared\\_categories.cshtml",
       "TargetPath": "Views\\Shared\\_categories.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "h:\\My-Github-Projects\\StudyWithMe\\StudyWithMe.WebUI\\Views\\Account\\ConfirmEmail.cshtml",
+      "TargetPath": "Views\\Account\\ConfirmEmail.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -40,8 +40,15 @@ using StudyWithMe.WebUI.Identity;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\Views\_ViewImports.cshtml"
+using StudyWithMe.WebUI.Extensions;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b136c598a152d3cc53ee38458080bd6b705076d1", @"/Views/Group/List.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0b54657acc42eebbdf3311780921b3333c121774", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"eebfe4e23a4911875bce4bfd16ded328dec46626", @"/Views/_ViewImports.cshtml")]
     public class Views_Group_List : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998
