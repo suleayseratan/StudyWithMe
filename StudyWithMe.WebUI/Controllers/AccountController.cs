@@ -155,6 +155,99 @@ namespace StudyWithMe.WebUI.Controllers
             });
             return View();
         }
+        
+        [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(string email)
+        {
+            if(String.IsNullOrEmpty(email))
+            {
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Email",
+                    Message = "Please enter email address!",
+                    AlertType = "warning"
+                });
+                return View();
+            }
+
+            var user = await _userManager.FindByEmailAsync(email);
+
+            if(user == null)
+            {
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Email",
+                    Message = "There is no such email",
+                    AlertType = "danger"
+                });
+                return View();
+            }
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            var url = Url.Action("ResetPassword","Account",new {
+                userId = user.Id,
+                token = token
+            });
+
+            await _emailSender.SendEmailAsync(email,"Reset Your Password",$"Please click the <a href='https://localhost:5001{url}'>link</a> for reset your password.");
+            
+            TempData.Put("message", new AlertMessage{
+                Title = "Check Email",
+                Message = "We send a mail for you. Please check your email address.",
+                AlertType = "success"
+            });
+
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult ResetPassword(string userId, string token)
+        {
+            if(token == null || userId == null)
+            {
+                TempData.Put("message",new AlertMessage{
+                    Title = "Warning",
+                    Message = "Someting goes wrong here",
+                    AlertType = "warning"
+                });
+                return RedirectToAction("Home","Index");
+            }
+            var model = new ResetPasswordModel{Token = token};
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordModel model)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if(user == null)
+            {
+                TempData.Put("message", new AlertMessage{
+                    Title = "Warning",
+                    Message = "Someting goes wrong here!",
+                    AlertType = "warning"
+                });
+                return RedirectToAction("Home","Index");
+            }
+
+            var result = await _userManager.ResetPasswordAsync(user, model.Token,model.Password);
+            if(result.Succeeded)
+            {
+                return RedirectToAction("Login","Account");
+            }
+
+            return View(model);
+        }
     }
 }
