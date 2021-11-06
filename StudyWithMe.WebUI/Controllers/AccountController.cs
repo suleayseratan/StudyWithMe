@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using StudyWithMe.WebUI.EmailServices;
 using StudyWithMe.WebUI.Extensions;
 using StudyWithMe.WebUI.Identity;
 using StudyWithMe.WebUI.Models;
@@ -15,10 +16,12 @@ namespace StudyWithMe.WebUI.Controllers
     {
         private UserManager<User> _userManager;
         private SignInManager<User> _signInManager;
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        private IEmailSender _emailSender;
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _emailSender = emailSender;
         }
         [HttpGet]
         public IActionResult Login(string ReturnUrl = null)
@@ -98,7 +101,8 @@ namespace StudyWithMe.WebUI.Controllers
                     token = token
                 }); // Created url with token
 
-                Console.WriteLine(url);
+                await _emailSender.SendEmailAsync(model.Email,"Email Activaiton",$"Please click the <a href='https://localhost:5001{url}'>link</a> for confirm your emial account.");
+
                 // Eğer başarılı bir şekilde kayıt oluşursa Login sayfasına yönlendirilir.
                 return RedirectToAction("Login", "Account");
             }

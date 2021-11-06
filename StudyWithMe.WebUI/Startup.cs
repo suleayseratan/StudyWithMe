@@ -16,6 +16,7 @@ using StudyWithMe.Business.Abstract;
 using StudyWithMe.Business.Concrete;
 using StudyWithMe.DataAccess.Abstract;
 using StudyWithMe.DataAccess.Concrete.EfCore;
+using StudyWithMe.WebUI.EmailServices;
 using StudyWithMe.WebUI.Identity;
 
 namespace studyWithMe.WebUI
@@ -72,6 +73,14 @@ namespace studyWithMe.WebUI
             
             services.AddScoped<IUnitOfWork,UnitOfWork>();
             
+            services.AddScoped<IEmailSender,SmtpEmailSender>(i =>
+                new SmtpEmailSender(
+                    _configuration["EmailSender:Host"],
+                    _configuration.GetValue<int>("EmailSender:Port"),
+                    _configuration.GetValue<bool>("EmailSender:EnableSSL"),
+                    _configuration["EmailSender:UserName"],
+                    _configuration["EmailSender:Password"])
+            );
             
             services.AddControllersWithViews();
         }
