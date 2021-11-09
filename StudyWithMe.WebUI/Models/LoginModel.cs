@@ -15,5 +15,6 @@ namespace StudyWithMe.WebUI.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
         public string ReturnUrl { get; set; }
+        public bool IsBroadcaster { get; set; }
     }
 }

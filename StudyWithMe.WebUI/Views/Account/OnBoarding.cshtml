@@ -1,0 +1,46 @@
+@model LoginModel
+<div class="container text-align-center">
+    <h2 class="mt-5">How to use StudyWithMe?</h2>
+    <form asp-controller="Account" asp-action="OnBoarding" method="POST">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <img src="~/images/live1.png" alt="..." class="card-img-toph-auto"
+                        style="margin-left: 4rem !important; width: 60%;">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" asp-for="IsBroadcaster" value="true">
+                                <label for="form-check-label" for="">Broadcaster</label>
+                            </div>
+                        </div>
+                        <p class="card-text">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="~/images/live2.png" alt="..." class="card-img-top h-auto"
+                        style="margin-left: 4rem !important; width: 60%;">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" asp-for="IsBroadcaster" value="false">
+                                <label for="form-check-label" for="">Audience</label>
+                            </div>
+                        </div>
+                        <p class="card-text">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button type="submit" class="btn bg-my-blue">Go On</button>
+        </div>
+    </form>
+</div>

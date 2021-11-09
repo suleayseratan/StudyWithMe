@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudyWithMe.WebUI.Identity;
 
 namespace studyWithMe.WebUI.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20211106182328_AddedIsBroadcasteronUser")]
+    partial class AddedIsBroadcasteronUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -173,9 +175,6 @@ namespace studyWithMe.WebUI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsBroadcaster")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsFirstLogin")
                         .HasColumnType("bit");
 
                     b.Property<string>("LastName")

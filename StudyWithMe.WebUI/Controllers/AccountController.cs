@@ -60,6 +60,10 @@ namespace StudyWithMe.WebUI.Controllers
 
             if (result.Succeeded)
             {
+                if (user.IsFirstLogin == true)
+                {
+                    return RedirectToAction("OnBoarding", "Account");
+                }
                 return Redirect(model.ReturnUrl ?? "/");
             }
 
@@ -101,7 +105,7 @@ namespace StudyWithMe.WebUI.Controllers
                     token = token
                 }); // Created url with token
 
-                await _emailSender.SendEmailAsync(model.Email,"Email Activaiton",$"Please click the <a href='https://localhost:5001{url}'>link</a> for confirm your emial account.");
+                await _emailSender.SendEmailAsync(model.Email, "Email Activaiton", $"Please click the <a href='https://localhost:5001{url}'>link</a> for confirm your emial account.");
 
                 // Eğer başarılı bir şekilde kayıt oluşursa Login sayfasına yönlendirilir.
                 return RedirectToAction("Login", "Account");
@@ -155,7 +159,7 @@ namespace StudyWithMe.WebUI.Controllers
             });
             return View();
         }
-        
+
         [HttpGet]
         public IActionResult ForgotPassword()
         {
@@ -165,7 +169,7 @@ namespace StudyWithMe.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> ForgotPassword(string email)
         {
-            if(String.IsNullOrEmpty(email))
+            if (String.IsNullOrEmpty(email))
             {
                 TempData.Put("message", new AlertMessage()
                 {
@@ -178,7 +182,7 @@ namespace StudyWithMe.WebUI.Controllers
 
             var user = await _userManager.FindByEmailAsync(email);
 
-            if(user == null)
+            if (user == null)
             {
                 TempData.Put("message", new AlertMessage()
                 {
@@ -191,14 +195,16 @@ namespace StudyWithMe.WebUI.Controllers
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
 
-            var url = Url.Action("ResetPassword","Account",new {
+            var url = Url.Action("ResetPassword", "Account", new
+            {
                 userId = user.Id,
                 token = token
             });
 
-            await _emailSender.SendEmailAsync(email,"Reset Your Password",$"Please click the <a href='https://localhost:5001{url}'>link</a> for reset your password.");
-            
-            TempData.Put("message", new AlertMessage{
+            await _emailSender.SendEmailAsync(email, "Reset Your Password", $"Please click the <a href='https://localhost:5001{url}'>link</a> for reset your password.");
+
+            TempData.Put("message", new AlertMessage
+            {
                 Title = "Check Email",
                 Message = "We send a mail for you. Please check your email address.",
                 AlertType = "success"
@@ -210,44 +216,63 @@ namespace StudyWithMe.WebUI.Controllers
         [HttpGet]
         public IActionResult ResetPassword(string userId, string token)
         {
-            if(token == null || userId == null)
+            if (token == null || userId == null)
             {
-                TempData.Put("message",new AlertMessage{
+                TempData.Put("message", new AlertMessage
+                {
                     Title = "Warning",
                     Message = "Someting goes wrong here",
                     AlertType = "warning"
                 });
-                return RedirectToAction("Home","Index");
+                return RedirectToAction("Home", "Index");
             }
-            var model = new ResetPasswordModel{Token = token};
+            var model = new ResetPasswordModel { Token = token };
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> ResetPassword(ResetPasswordModel model)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(model);
             }
             var user = await _userManager.FindByEmailAsync(model.Email);
-            if(user == null)
+            if (user == null)
             {
-                TempData.Put("message", new AlertMessage{
+                TempData.Put("message", new AlertMessage
+                {
                     Title = "Warning",
                     Message = "Someting goes wrong here!",
                     AlertType = "warning"
                 });
-                return RedirectToAction("Home","Index");
+                return RedirectToAction("Home", "Index");
             }
 
-            var result = await _userManager.ResetPasswordAsync(user, model.Token,model.Password);
-            if(result.Succeeded)
+            var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+            if (result.Succeeded)
             {
-                return RedirectToAction("Login","Account");
+                return RedirectToAction("Login", "Account");
             }
 
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult OnBoarding(string userId)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult OnBoarding(LoginModel model)
+        {
+            var userId = _userManager.GetUserId(User);
+            if (model.IsBroadcaster == true)
+            {
+               return View(model);
+            }
+            return View();
         }
     }
 }

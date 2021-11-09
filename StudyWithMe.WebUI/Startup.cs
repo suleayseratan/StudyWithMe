@@ -107,6 +107,12 @@ namespace studyWithMe.WebUI
 
             app.UseEndpoints(endpoints =>
             {
+                // endpoints.MapControllerRoute(
+                //     name:"account/onboarding",
+                //     pattern: "account/onboarding/{userId}",
+                //     defaults: new {controller="Account",Action="Onboarding"}
+                // );
+
                 endpoints.MapControllerRoute(
                     name:"settings",
                     pattern : "settings",
