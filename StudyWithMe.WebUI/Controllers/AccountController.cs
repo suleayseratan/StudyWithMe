@@ -17,11 +17,13 @@ namespace StudyWithMe.WebUI.Controllers
         private UserManager<User> _userManager;
         private SignInManager<User> _signInManager;
         private IEmailSender _emailSender;
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IEmailSender emailSender)
+        private RoleManager<IdentityRole> _roleManager;
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IEmailSender emailSender, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
+            _roleManager = roleManager;
         }
         [HttpGet]
         public IActionResult Login(string ReturnUrl = null)
@@ -62,7 +64,7 @@ namespace StudyWithMe.WebUI.Controllers
             {
                 if (user.IsFirstLogin == true)
                 {
-                    return RedirectToAction("OnBoarding", "Account");
+                    return Redirect($"account/onboarding/{user.Id}");
                 }
                 return Redirect(model.ReturnUrl ?? "/");
             }
@@ -261,16 +263,31 @@ namespace StudyWithMe.WebUI.Controllers
         [HttpGet]
         public IActionResult OnBoarding(string userId)
         {
+            var user = _userManager.FindByIdAsync(userId);
+            if(user == null)
+            {
+                TempData.Put("message", new AlertMessage
+                {
+                    Title = "Warning",
+                    Message = "Someting goes wrong here!",
+                    AlertType = "warning"
+                });
+                return RedirectToAction("Login","Access");
+            }
+            BroadcastModel model = new BroadcastModel{UserId = userId};
             return View();
         }
 
         [HttpPost]
-        public IActionResult OnBoarding(LoginModel model)
+        public async Task<IActionResult> OnBoarding(BroadcastModel model)
         {
-            var userId = _userManager.GetUserId(User);
             if (model.IsBroadcaster == true)
             {
-               return View(model);
+                var role = await _roleManager.FindByNameAsync("Broadcaster");
+                var user = await _userManager.FindByIdAsync(model.UserId);
+                
+                var result = await _userManager.AddToRoleAsync(user,"Broadcaster");
+                return View(model);
             }
             return View();
         }
