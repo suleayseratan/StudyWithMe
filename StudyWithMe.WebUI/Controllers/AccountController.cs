@@ -64,7 +64,7 @@ namespace StudyWithMe.WebUI.Controllers
             {
                 if (user.IsFirstLogin == true)
                 {
-                    return Redirect($"account/onboarding/{user.Id}");
+                    return Redirect($"onboarding/{user.Id}");
                 }
                 return Redirect(model.ReturnUrl ?? "/");
             }
@@ -264,7 +264,7 @@ namespace StudyWithMe.WebUI.Controllers
         public IActionResult OnBoarding(string userId)
         {
             var user = _userManager.FindByIdAsync(userId);
-            if(user == null)
+            if (user == null)
             {
                 TempData.Put("message", new AlertMessage
                 {
@@ -272,24 +272,65 @@ namespace StudyWithMe.WebUI.Controllers
                     Message = "Someting goes wrong here!",
                     AlertType = "warning"
                 });
-                return RedirectToAction("Login","Access");
+                return RedirectToAction("Login", "Access");
             }
-            BroadcastModel model = new BroadcastModel{UserId = userId};
+            BroadcastModel model = new BroadcastModel { UserId = userId };
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> OnBoarding(BroadcastModel model)
         {
+            var user = await _userManager.FindByIdAsync(model.UserId);
+            var roleBroadcaster = await _roleManager.FindByNameAsync("Broadcaster");
+            var roleUser = await _roleManager.FindByNameAsync("User");
             if (model.IsBroadcaster == true)
             {
-                var role = await _roleManager.FindByNameAsync("Broadcaster");
-                var user = await _userManager.FindByIdAsync(model.UserId);
-                
-                var result = await _userManager.AddToRoleAsync(user,"Broadcaster");
+                if (roleBroadcaster != null)
+                {
+                    var result = await _userManager.AddToRoleAsync(user, roleBroadcaster.Name);
+                    if (result.Succeeded)
+                    {
+                        return Redirect("/");
+                    }
+                    TempData.Put("message", new AlertMessage()
+                    {
+                        Title = "Warning",
+                        Message = "There is a unknown ",
+                        AlertType = ""
+                    });
+                    return View(model);
+                }
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Warning",
+                    Message = "There is a unknown ",
+                    AlertType = ""
+                });
                 return View(model);
             }
-            return View();
+            else if (model.IsBroadcaster == false)
+            {
+
+                if (roleUser != null)
+                {
+                    var result = await _userManager.AddToRoleAsync(user, roleUser.Name);
+                    if (result.Succeeded)
+                    {
+                        return Redirect("/");
+                    }
+                    TempData.Put("message", new AlertMessage()
+                    {
+                        Title = "Warning",
+                        Message = "There is a unknown ",
+                        AlertType = ""
+                    });
+                    return View(model);
+                }
+                return View(model);
+            }
+
+            return View(model);
         }
     }
 }
