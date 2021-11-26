@@ -1,3 +1,64 @@
+@model GroupVideoModel
 <form asp-controller="Group" asp-action="CreateGroup" method="POST">
-    
+    <div class="container">
+        <div class="group-card">
+            <div class="group-card-title">
+                <div class="row row-cols-3 row-cols-md-3 g-4 text-center">
+                    <div class="col">
+                        <hr class="rounded">
+                    </div>
+                    <div class="col">
+                        <h3 class="text-uppercase">Create A Study Group</h3>
+                    </div>
+                    <div class="col">
+                        <hr class="rounded">
+                    </div>
+                </div>
+            </div>
+            <div class="group-card-body">
+                <div class="form-group row">
+                    <label class="col-sm-2 group-label">Group Image : </label>
+                    <div class="custom-file col-sm-8">
+                        <input type="file" accept="image/*" class="form-control max-width" />
+                        <div class="invalid-feedback">Example invalid custom file feedback</div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Group Name : </label>
+                    <div class="col-sm-8">
+                        <input asp-for="GroupName" class="form-control" aria-label="Small" />
+                        <span asp-validation-for="GroupName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Genre :</label>
+                    <div class="col-sm-8">
+                        <select asp-for="Genre" class="form-control">
+                        </select>
+                        <span asp-validation-for="Genre" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Explanation :</label>
+                    <div class="col-sm-8">
+                        <textarea asp-for="Description" class="form-control textarea-resize" rows="3"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Member Count :</label>
+                    <div class="col-sm-8">
+                        <input type="range" class="form-range" asp-for="MemberCount" min="1" max="15" step="1" value="1"
+                            id="memberRange">
+                        <label id="rangeValue">1</label>
+                        <span asp-validation-for="Genre" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="group-card-footer d-grid gap-1 col-6 mx-auto">
+            <button type="submit" class="btn bg-my-blue">Save</button>
+        </div>
+    </div>
 </form>

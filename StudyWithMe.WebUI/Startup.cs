@@ -130,6 +130,12 @@ namespace studyWithMe.WebUI
                     pattern : "livevideos/{genre?}",
                     defaults : new {controller="Live",Action="List"}
                 );
+                
+                endpoints.MapControllerRoute(
+                    name:"group/create",
+                    pattern : "group/create",
+                    defaults : new {controller="Group",Action="CreateGroup"}
+                );
 
                 endpoints.MapControllerRoute(
                     name:"groups",

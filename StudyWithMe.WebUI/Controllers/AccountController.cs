@@ -284,53 +284,63 @@ namespace StudyWithMe.WebUI.Controllers
             var user = await _userManager.FindByIdAsync(model.UserId);
             var roleBroadcaster = await _roleManager.FindByNameAsync("Broadcaster");
             var roleUser = await _roleManager.FindByNameAsync("User");
-            if (model.IsBroadcaster == true)
+            if (user.IsFirstLogin == true)
             {
-                if (roleBroadcaster != null)
+                if (model.IsBroadcaster == true)
                 {
-                    var result = await _userManager.AddToRoleAsync(user, roleBroadcaster.Name);
-                    if (result.Succeeded)
+                    if (roleBroadcaster != null)
                     {
-                        return Redirect("/");
+                        var result = await _userManager.AddToRoleAsync(user, roleBroadcaster.Name);
+                        if (result.Succeeded)
+                        {
+                            return Redirect("/");
+                        }
+                        TempData.Put("message", new AlertMessage()
+                        {
+                            Title = "Warning",
+                            Message = "There is a unknown ",
+                            AlertType = "Warning"
+                        });
+                        return View(model);
                     }
                     TempData.Put("message", new AlertMessage()
                     {
                         Title = "Warning",
                         Message = "There is a unknown ",
-                        AlertType = ""
+                        AlertType = "Warning"
                     });
                     return View(model);
                 }
-                TempData.Put("message", new AlertMessage()
+                else if (model.IsBroadcaster == false)
                 {
-                    Title = "Warning",
-                    Message = "There is a unknown ",
-                    AlertType = ""
-                });
-                return View(model);
-            }
-            else if (model.IsBroadcaster == false)
-            {
-
-                if (roleUser != null)
-                {
-                    var result = await _userManager.AddToRoleAsync(user, roleUser.Name);
-                    if (result.Succeeded)
+                    if (roleUser != null)
                     {
-                        return Redirect("/");
+                        var result = await _userManager.AddToRoleAsync(user, roleUser.Name);
+                        if (result.Succeeded)
+                        {
+                            user.IsFirstLogin = false;
+                            var updateResult = await _userManager.UpdateAsync(user);
+                            if (updateResult.Succeeded)
+                            {
+                                return Redirect("/");
+                            }
+                            return View(model);
+                        }
+                        TempData.Put("message", new AlertMessage()
+                        {
+                            Title = "Warning",
+                            Message = "There is a unknown ",
+                            AlertType = "Warning"
+                        });
+                        return View(model);
                     }
-                    TempData.Put("message", new AlertMessage()
-                    {
-                        Title = "Warning",
-                        Message = "There is a unknown ",
-                        AlertType = ""
-                    });
                     return View(model);
                 }
+
                 return View(model);
             }
+            return Redirect("/");
 
-            return View(model);
         }
     }
 }
