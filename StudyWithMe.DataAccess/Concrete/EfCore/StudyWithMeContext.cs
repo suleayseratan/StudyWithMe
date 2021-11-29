@@ -10,7 +10,7 @@ namespace StudyWithMe.DataAccess.Concrete.EfCore
 {
     public class StudyWithMeContext : DbContext
     {
-        public StudyWithMeContext(DbContextOptions options) : base(options)
+        public StudyWithMeContext(DbContextOptions<StudyWithMeContext> options) : base(options)
         {
             
         }

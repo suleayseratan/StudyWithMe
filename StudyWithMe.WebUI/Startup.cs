@@ -35,7 +35,7 @@ namespace studyWithMe.WebUI
             
             // ApplicationContext
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(_configuration.GetConnectionString("MsSqlConnection")));
-           // USer sınıfındaki özellikelri de kullanabilmek için tanımlama bu şekilde yapılmaldıır 
+           // User sınıfındaki özellikelri de kullanabilmek için tanımlama bu şekilde yapılmaldıır 
             services.AddIdentity<User,IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(options => {
                 // password
@@ -72,6 +72,8 @@ namespace studyWithMe.WebUI
             });
             
             services.AddScoped<IUnitOfWork,UnitOfWork>();
+
+            services.AddScoped<IGenreService,GenreManager>();
             
             services.AddScoped<IEmailSender,SmtpEmailSender>(i =>
                 new SmtpEmailSender(

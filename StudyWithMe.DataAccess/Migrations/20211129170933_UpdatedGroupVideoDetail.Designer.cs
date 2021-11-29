@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudyWithMe.DataAccess.Concrete.EfCore;
 
 namespace StudyWithMe.DataAccess.Migrations
 {
     [DbContext(typeof(StudyWithMeContext))]
-    partial class StudyWithMeContextModelSnapshot : ModelSnapshot
+    [Migration("20211129170933_UpdatedGroupVideoDetail")]
+    partial class UpdatedGroupVideoDetail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

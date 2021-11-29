@@ -8,7 +8,7 @@ namespace StudyWithMe.DataAccess.Concrete.EfCore
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private protected StudyWithMeContext _context;
+        private readonly StudyWithMeContext _context;
         public UnitOfWork(StudyWithMeContext context)
         {
             _context = context;
@@ -19,9 +19,11 @@ namespace StudyWithMe.DataAccess.Concrete.EfCore
         private EfCoreGroupVideoGenreRepository _groupVideoGenreRepository;
         private EfCoreStudyVideoRepository _studyVideoRepository;
         private EfCoreVideoLikedUserRepository _videoLikedUserRepository;
-        public IFollowerRepository Followers => _followerRepository = _followerRepository ?? new EfCoreFollowerRepository(_context);
+        public IFollowerRepository Followers => 
+        _followerRepository = _followerRepository ?? new EfCoreFollowerRepository(_context);
 
-        public IGenreRepository Genres => _genreRepository = _genreRepository ?? new EfCoreGenreRepository(_context);
+        public IGenreRepository Genres =>
+         _genreRepository = _genreRepository ?? new EfCoreGenreRepository(_context);
 
         public IGroupVideoDetailRepository GroupVideoDetails => _groupVideoDetailRepository = _groupVideoDetailRepository ?? new EfCoreGroupVideoDetailRepository(_context);
 

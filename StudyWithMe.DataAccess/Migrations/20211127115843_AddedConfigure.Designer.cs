@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudyWithMe.DataAccess.Concrete.EfCore;
 
 namespace StudyWithMe.DataAccess.Migrations
 {
     [DbContext(typeof(StudyWithMeContext))]
-    partial class StudyWithMeContextModelSnapshot : ModelSnapshot
+    [Migration("20211127115843_AddedConfigure")]
+    partial class AddedConfigure
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,17 +62,8 @@ namespace StudyWithMe.DataAccess.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("GroupVideoName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("JoinedUserCount")
-                        .HasColumnType("int");
-
                     b.Property<int>("MaxUsersCount")
                         .HasColumnType("int");
-
-                    b.Property<byte>("VideoImage")
-                        .HasColumnType("tinyint");
 
                     b.HasKey("GroupVideoId")
                         .HasName("GroupVideoId");

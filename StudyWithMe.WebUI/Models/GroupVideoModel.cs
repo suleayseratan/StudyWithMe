@@ -9,7 +9,7 @@ namespace StudyWithMe.WebUI.Models
     public class GroupVideoModel
     {
         public string GroupName { get; set; }
-        public string Genre { get; set; }
+        public int GenreId { get; set; }
         public int MemberCount { get; set; }
         public string CreatedByUser { get; set; }
         public string Description { get; set; }
