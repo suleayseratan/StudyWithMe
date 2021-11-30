@@ -11,6 +11,8 @@ namespace StudyWithMe.Entity
         public int GroupVideoId { get; set; }
         public int BroadcastingId { get; set; }
         public string GroupVideoName { get; set; }
+        public string HostUrl { get; set; }
+        public string JoinUrl { get; set; }
         public string Description { get; set; }
         public byte VideoImage { get; set; }
         public int MaxUsersCount { get; set; }

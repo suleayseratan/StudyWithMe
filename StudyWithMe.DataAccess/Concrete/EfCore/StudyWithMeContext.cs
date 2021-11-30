@@ -21,14 +21,17 @@ namespace StudyWithMe.DataAccess.Concrete.EfCore
         public DbSet<GroupVideoGenre> GroupVideoGenres { get; set; }
         public DbSet<StudyVideo> StudyVideos { get; set; }
         public DbSet<VideoLikedUser> VideoLikedUsers { get; set; }
+        public DbSet<UserJoinedGroup> UsersJoinedGroups { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            
             modelBuilder.ApplyConfiguration(new FollowerConfiguration());
             modelBuilder.ApplyConfiguration(new GenreConfiguration());
             modelBuilder.ApplyConfiguration(new GroupVideoDetailConfiguration());
             modelBuilder.ApplyConfiguration(new GroupVideoGenreConfiguration());
             modelBuilder.ApplyConfiguration(new StudyVideoConfiguration());
             modelBuilder.ApplyConfiguration(new VideoLikedUserConfiguration());
+            modelBuilder.ApplyConfiguration(new UserJoinedGroupConfiguration());    
 
         }
     }

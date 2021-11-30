@@ -35,10 +35,7 @@ namespace StudyWithMe.WebUI.Controllers
         [HttpPost]
         public IActionResult CreateGroup(GroupVideoModel model)
         {
-            // var group = new GroupVideoDetail()
-            // {
-            //     GroupVideoId = model.
-            // };
+            
             return View();
         }
     }

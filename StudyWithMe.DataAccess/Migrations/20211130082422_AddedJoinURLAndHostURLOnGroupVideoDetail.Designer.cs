@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudyWithMe.DataAccess.Concrete.EfCore;
 
 namespace StudyWithMe.DataAccess.Migrations
 {
     [DbContext(typeof(StudyWithMeContext))]
-    partial class StudyWithMeContextModelSnapshot : ModelSnapshot
+    [Migration("20211130082422_AddedJoinURLAndHostURLOnGroupVideoDetail")]
+    partial class AddedJoinURLAndHostURLOnGroupVideoDetail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,24 +122,6 @@ namespace StudyWithMe.DataAccess.Migrations
                     b.ToTable("StudyVideos");
                 });
 
-            modelBuilder.Entity("StudyWithMe.Entity.UserJoinedGroup", b =>
-                {
-                    b.Property<int>("GroupId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("GroupVideoDetailGroupVideoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("GroupId", "UserId");
-
-                    b.HasIndex("GroupVideoDetailGroupVideoId");
-
-                    b.ToTable("UsersJoinedGroups");
-                });
-
             modelBuilder.Entity("StudyWithMe.Entity.VideoLikedUser", b =>
                 {
                     b.Property<int>("VideoId")
@@ -171,15 +155,6 @@ namespace StudyWithMe.DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("Genre");
-
-                    b.Navigation("GroupVideoDetail");
-                });
-
-            modelBuilder.Entity("StudyWithMe.Entity.UserJoinedGroup", b =>
-                {
-                    b.HasOne("StudyWithMe.Entity.GroupVideoDetail", "GroupVideoDetail")
-                        .WithMany()
-                        .HasForeignKey("GroupVideoDetailGroupVideoId");
 
                     b.Navigation("GroupVideoDetail");
                 });
