@@ -16,9 +16,16 @@ namespace StudyWithMe.Business.Concrete
             _unitOfWork = unitOfWork;
         }
 
+        public string ErrorMessage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public List<Genre> GetAll()
         {
             return _unitOfWork.Genres.GetAll();
+        }
+
+        public bool Validation(Genre entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

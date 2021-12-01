@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using StudyWithMe.Entity;
 
 namespace StudyWithMe.Business.Abstract
 {
-    public interface IGroupVideoDetailService : IValidator<GroupVideoDetail>
+    public interface IValidator<T>
     {
-        bool Create(GroupVideoDetail entity);
+        string ErrorMessage {get; set;}
+        bool Validation(T entity);
     }
 }

@@ -74,6 +74,7 @@ namespace studyWithMe.WebUI
             services.AddScoped<IUnitOfWork,UnitOfWork>();
 
             services.AddScoped<IGenreService,GenreManager>();
+            services.AddScoped<IGroupVideoDetailService,GroupVideoDetailManager>();
             
             services.AddScoped<IEmailSender,SmtpEmailSender>(i =>
                 new SmtpEmailSender(

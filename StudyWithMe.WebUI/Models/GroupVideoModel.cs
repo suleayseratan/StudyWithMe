@@ -13,8 +13,8 @@ namespace StudyWithMe.WebUI.Models
         public int MemberCount { get; set; }
         public string CreatedByUser { get; set; }
         public string Description { get; set; }
+        public int MaxUsersCount { get; set; }
         public int JoinedUserCount { get; set; }
-
         public IList<Genre> GroupGenre {get; set;}
 
     }

@@ -9,7 +9,7 @@ namespace StudyWithMe.Entity
     public class GroupVideoDetail : IEntity
     {
         public int GroupVideoId { get; set; }
-        public int BroadcastingId { get; set; }
+        public string CreatedByUserId { get; set; }
         public string GroupVideoName { get; set; }
         public string HostUrl { get; set; }
         public string JoinUrl { get; set; }

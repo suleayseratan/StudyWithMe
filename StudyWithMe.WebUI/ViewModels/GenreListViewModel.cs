@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using StudyWithMe.Entity;
 
-namespace StudyWithMe.Business.Abstract
+namespace StudyWithMe.WebUI.ViewModels
 {
-    public interface IGenreService : IValidator<Genre>
+    public class GenreListViewModel
     {
-        List<Genre> GetAll();
+        public List<Genre> Genres { get; set; }
     }
 }
