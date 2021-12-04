@@ -41,13 +41,14 @@ namespace StudyWithMe.WebUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateGroup(GroupVideoModel model)
+        public async Task<IActionResult> CreateGroup(GroupVideoModel model)
         {
             if (ModelState.IsValid)
             {
                 string userId = _userManager.GetUserId(User);
+                var user = await _userManager.FindByIdAsync(userId);
                 DateTime startTime = DateTime.Now;
-                var meetingInformations = CreateZoomGroup(model.GroupName,startTime);
+                var meetingInformations = CreateZoomGroup(user.Email,model.GroupName,startTime);
                 var group = new GroupVideoDetail()
                 {
                     GroupVideoName = model.GroupName,
@@ -82,7 +83,7 @@ namespace StudyWithMe.WebUI.Controllers
             return Redirect("~/");
         }
 
-        private Dictionary<string,string> CreateZoomGroup(string groupName, DateTime startTime)
+        private Dictionary<string,string> CreateZoomGroup(string email, string groupName, DateTime startTime)
         {
             Dictionary<string,string> informations = new Dictionary<string, string>();
             var tokenHandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
@@ -99,7 +100,7 @@ namespace StudyWithMe.WebUI.Controllers
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
 
-            var client = new RestClient("https://api.zoom.us/v2/users/yy8799990@gmail.com/meetings");
+            var client = new RestClient("https://api.zoom.us/v2/users/{userID}/meetings");
             var request = new RestRequest(Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddJsonBody(new { topic = groupName, duration = "10", start_time = startTime, type = "2" });
@@ -117,5 +118,6 @@ namespace StudyWithMe.WebUI.Controllers
             informations.Add("code",code);
             return informations;
         }
+       
     }
 }
