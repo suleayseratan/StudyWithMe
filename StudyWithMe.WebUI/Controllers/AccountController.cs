@@ -1,9 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using RestSharp;
 using StudyWithMe.WebUI.EmailServices;
 using StudyWithMe.WebUI.Extensions;
 using StudyWithMe.WebUI.Identity;
@@ -288,26 +292,49 @@ namespace StudyWithMe.WebUI.Controllers
             {
                 if (model.IsBroadcaster == true)
                 {
-                    if (roleBroadcaster != null)
+                    var result = await _userManager.AddToRoleAsync(user, roleBroadcaster.Name);
+                    if (result.Succeeded)
                     {
-                        var result = await _userManager.AddToRoleAsync(user, roleBroadcaster.Name);
-                        if (result.Succeeded)
+                        var tokenHandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
+                        var now = DateTime.UtcNow;
+                        var apiSecret = "04a7vdOpsLmEc7LktdbEYHSPDW58GywcznuW";
+                        byte[] symmetricKey = Encoding.ASCII.GetBytes(apiSecret);
+
+                        var tokenDescriptor = new SecurityTokenDescriptor
                         {
+                            Issuer = "F_TrcEjzRgWvv-NCsVcJvg",
+                            Expires = now.AddSeconds(300),
+                            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(symmetricKey), SecurityAlgorithms.HmacSha256),
+                        };
+                        var token = tokenHandler.CreateToken(tokenDescriptor);
+                        var tokenString = tokenHandler.WriteToken(token);
+
+                        var client = new RestClient($"https://api.zoom.us/v2/users/{user.Email}");
+                        var request = new RestRequest(Method.GET);
+                        request.AddHeader("content-type", "application/json");
+                        request.AddHeader("authorization", String.Format("Bearer {0}", tokenString));
+
+                        IRestResponse response = client.Execute(request);
+                        if (response.IsSuccessful)
+                        {
+                            user.IsFirstLogin = false;
+                            var updateResult = await _userManager.UpdateAsync(user);
                             return Redirect("/");
                         }
+
                         TempData.Put("message", new AlertMessage()
                         {
-                            Title = "Warning",
-                            Message = "There is a unknown ",
-                            AlertType = "Warning"
+                            Title = "Create Zoom Account",
+                            Message = @"Please create an <a href='https://zoom.us/signup'>link</a> with your email!",
+                            AlertType = "warning"
                         });
                         return View(model);
                     }
                     TempData.Put("message", new AlertMessage()
                     {
                         Title = "Warning",
-                        Message = "There is a unknown ",
-                        AlertType = "Warning"
+                        Message = "There is a unknown",
+                        AlertType = "warning"
                     });
                     return View(model);
                 }

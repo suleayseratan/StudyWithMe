@@ -60,7 +60,7 @@ namespace StudyWithMe.WebUI.Controllers
                     JoinedUserCount = 0,
                     MaxUsersCount = model.MaxUsersCount,
                 };
-                if (_groupVideoDetailService.Create(group))
+                if(_groupVideoDetailService.Create(group))
                 {
                     TempData.Put("message", new AlertMessage
                     {
@@ -86,6 +86,7 @@ namespace StudyWithMe.WebUI.Controllers
         private Dictionary<string,string> CreateZoomGroup(string email, string groupName, DateTime startTime)
         {
             Dictionary<string,string> informations = new Dictionary<string, string>();
+            
             var tokenHandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
             var now = DateTime.UtcNow;
             var apiSecret = "04a7vdOpsLmEc7LktdbEYHSPDW58GywcznuW";
@@ -100,7 +101,7 @@ namespace StudyWithMe.WebUI.Controllers
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
 
-            var client = new RestClient("https://api.zoom.us/v2/users/{userID}/meetings");
+            var client = new RestClient($"https://api.zoom.us/v2/users/{email}/meetings");
             var request = new RestRequest(Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddJsonBody(new { topic = groupName, duration = "10", start_time = startTime, type = "2" });
