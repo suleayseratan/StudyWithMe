@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -321,14 +322,20 @@ namespace StudyWithMe.WebUI.Controllers
                             var updateResult = await _userManager.UpdateAsync(user);
                             return Redirect("/");
                         }
-
+                        StringBuilder stringBuilder = new StringBuilder();
+                        stringBuilder.Append("<a href='https://zoom.us/signup'>");
+                        stringBuilder.AppendLine("link");
+                        stringBuilder.AppendLine("</a>");
+                        
+                        
                         TempData.Put("message", new AlertMessage()
                         {
                             Title = "Create Zoom Account",
-                            Message = @"Please create an <a href='https://zoom.us/signup'>link</a> with your email!",
+                            Message = $"Please create an {stringBuilder} with your email!",
                             AlertType = "warning"
                         });
-                        return View(model);
+                        Thread.Sleep(500);
+                        return Redirect("/");
                     }
                     TempData.Put("message", new AlertMessage()
                     {
