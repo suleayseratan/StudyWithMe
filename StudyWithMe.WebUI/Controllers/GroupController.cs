@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -32,7 +35,7 @@ namespace StudyWithMe.WebUI.Controllers
         {
             return View();
         }
-
+        [Authorize(Roles = "Broadcaster")]
         [HttpGet]
         public IActionResult CreateGroup()
         {
@@ -48,7 +51,8 @@ namespace StudyWithMe.WebUI.Controllers
                 string userId = _userManager.GetUserId(User);
                 var user = await _userManager.FindByIdAsync(userId);
                 DateTime startTime = DateTime.Now;
-                var meetingInformations = CreateZoomGroup(user.Email,model.GroupName,startTime);
+                var meetingInformations = CreateZoomGroup(user.Email, model.GroupName, startTime);
+
                 var group = new GroupVideoDetail()
                 {
                     GroupVideoName = model.GroupName,
@@ -56,12 +60,24 @@ namespace StudyWithMe.WebUI.Controllers
                     HostUrl = meetingInformations["host"],
                     JoinUrl = meetingInformations["join"],
                     Description = model.Description,
-                    VideoImage = 1,
                     JoinedUserCount = 0,
                     MaxUsersCount = model.MaxUsersCount,
                 };
-                if(_groupVideoDetailService.Create(group))
+
+                if (group.VideoImage.Count() > 0)
                 {
+                    IFormFile file = Request.Form.Files.FirstOrDefault();
+
+                    using (var dataStream = new MemoryStream())
+                    {
+                        await file.CopyToAsync(dataStream);
+                        group.VideoImage = dataStream.ToArray();
+                    }
+                }
+
+                if (_groupVideoDetailService.Create(group))
+                {
+
                     TempData.Put("message", new AlertMessage
                     {
                         Title = "Added Group",
@@ -83,10 +99,10 @@ namespace StudyWithMe.WebUI.Controllers
             return Redirect("~/");
         }
 
-        private Dictionary<string,string> CreateZoomGroup(string email, string groupName, DateTime startTime)
+        private Dictionary<string, string> CreateZoomGroup(string email, string groupName, DateTime startTime)
         {
-            Dictionary<string,string> informations = new Dictionary<string, string>();
-            
+            Dictionary<string, string> informations = new Dictionary<string, string>();
+
             var tokenHandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
             var now = DateTime.UtcNow;
             var apiSecret = "04a7vdOpsLmEc7LktdbEYHSPDW58GywcznuW";
@@ -114,11 +130,11 @@ namespace StudyWithMe.WebUI.Controllers
             var host = (string)jObject["start_url"];
             var join = (string)jObject["join_url"];
             var code = Convert.ToString(numericStatusCode);
-            informations.Add("host",host);
-            informations.Add("join",join);
-            informations.Add("code",code);
+            informations.Add("host", host);
+            informations.Add("join", join);
+            informations.Add("code", code);
             return informations;
         }
-       
+
     }
 }

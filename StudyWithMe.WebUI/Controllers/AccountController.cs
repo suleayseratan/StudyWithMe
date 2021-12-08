@@ -296,6 +296,9 @@ namespace StudyWithMe.WebUI.Controllers
                     var result = await _userManager.AddToRoleAsync(user, roleBroadcaster.Name);
                     if (result.Succeeded)
                     {
+                        user.IsFirstLogin = false;
+                        var updateResult = await _userManager.UpdateAsync(user);
+                        
                         var tokenHandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
                         var now = DateTime.UtcNow;
                         var apiSecret = "04a7vdOpsLmEc7LktdbEYHSPDW58GywcznuW";
@@ -318,16 +321,14 @@ namespace StudyWithMe.WebUI.Controllers
                         IRestResponse response = client.Execute(request);
                         if (response.IsSuccessful)
                         {
-                            user.IsFirstLogin = false;
-                            var updateResult = await _userManager.UpdateAsync(user);
                             return Redirect("/");
                         }
                         StringBuilder stringBuilder = new StringBuilder();
                         stringBuilder.Append("<a href='https://zoom.us/signup'>");
                         stringBuilder.AppendLine("link");
                         stringBuilder.AppendLine("</a>");
-                        
-                        
+
+
                         TempData.Put("message", new AlertMessage()
                         {
                             Title = "Create Zoom Account",

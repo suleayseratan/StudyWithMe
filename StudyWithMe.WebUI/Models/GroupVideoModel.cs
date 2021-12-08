@@ -14,6 +14,7 @@ namespace StudyWithMe.WebUI.Models
         public string CreatedByUser { get; set; }
         public string Description { get; set; }
         public int MaxUsersCount { get; set; }
+        public string VideoImage { get; set; }
         public int JoinedUserCount { get; set; }
         public IList<Genre> GroupGenre {get; set;}
 
