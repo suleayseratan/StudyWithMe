@@ -9,5 +9,7 @@ namespace StudyWithMe.Business.Abstract
     public interface IGroupVideoDetailService : IValidator<GroupVideoDetail>
     {
         bool Create(GroupVideoDetail entity);
+        // GroupVideoDetail GetGroupVideoDetail(string url);
+        List<GroupVideoDetail> GetAll();
     }
 }

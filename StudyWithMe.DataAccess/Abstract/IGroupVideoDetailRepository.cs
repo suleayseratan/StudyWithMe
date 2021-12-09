@@ -8,6 +8,6 @@ namespace StudyWithMe.DataAccess.Abstract
 {
     public interface IGroupVideoDetailRepository : IRepository<GroupVideoDetail>
     {
-        
+        GroupVideoDetail GetGroupVideoDetail(string url);
     }
 }

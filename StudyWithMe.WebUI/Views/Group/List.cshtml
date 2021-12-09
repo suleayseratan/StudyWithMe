@@ -1,3 +1,9 @@
+@model GroupVideoViewModel
+
+@{
+    var groupVideos = Model.GroupVideos;
+}
+
 <div class="container">
     <div class="row">
         @if (User.IsInRole("Broadcaster"))
@@ -13,15 +19,12 @@
             <div class="row row-cols-1 row-cols-md-1 g-3">
                 <div class="col">
                     <div class="row row-cols-3 row-cols-md-3 g-4">
-                        <div class="col">
-                            @await Html.PartialAsync("_videoCard")
-                        </div>
-                        <div class="col">
-                            @await Html.PartialAsync("_videoCard")
-                        </div>
-                        <div class="col">
-                            @await Html.PartialAsync("_videoCard")
-                        </div>
+                        @foreach (var groupVideo in groupVideos)
+                        {
+                            <div class="col">
+                                @await Html.PartialAsync("_groupVideoCard",groupVideo)
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

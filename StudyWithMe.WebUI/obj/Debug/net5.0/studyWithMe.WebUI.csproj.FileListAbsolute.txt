@@ -99,3 +99,4 @@ H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views\Account\OnBoarding.cshtml.g.cs
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views\Group\CreateGroup.cshtml.g.cs
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\bin\Debug\net5.0\RestSharp.dll
+H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views\Shared\_groupVideoCard.cshtml.g.cs

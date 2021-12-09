@@ -10,6 +10,7 @@ namespace StudyWithMe.Business.Concrete
 {
     public class GroupVideoDetailManager : IGroupVideoDetailService
     {
+        public string ErrorMessage { get; set; }
         private readonly IUnitOfWork _unitOfWork;
         public GroupVideoDetailManager(IUnitOfWork unitOfWork)
         {
@@ -26,8 +27,15 @@ namespace StudyWithMe.Business.Concrete
             return false;
         }
 
-        public string ErrorMessage { get; set; }
+        public List<GroupVideoDetail> GetAll()
+        {
+            return _unitOfWork.GroupVideoDetails.GetAll();
+        }
 
+        // public GroupVideoDetail GetGroupVideoDetail(string url)
+        // {
+        //     _unitOfWork.GroupVideoDetails.GetGroupVideos(url);
+        // }
         public bool Validation(GroupVideoDetail entity)
         {
             var isValid = true;
@@ -40,5 +48,7 @@ namespace StudyWithMe.Business.Concrete
 
             return isValid;
         }
+
+
     }
 }

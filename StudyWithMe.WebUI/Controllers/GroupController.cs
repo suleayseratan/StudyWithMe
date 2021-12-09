@@ -17,6 +17,7 @@ using StudyWithMe.Entity;
 using StudyWithMe.WebUI.Extensions;
 using StudyWithMe.WebUI.Identity;
 using StudyWithMe.WebUI.Models;
+using StudyWithMe.WebUI.ViewModels;
 
 namespace StudyWithMe.WebUI.Controllers
 {
@@ -33,7 +34,11 @@ namespace StudyWithMe.WebUI.Controllers
         }
         public IActionResult List()
         {
-            return View();
+            var groupViewModel = new GroupVideoViewModel()
+            {
+                GroupVideos = _groupVideoDetailService.GetAll()
+            };
+            return View(groupViewModel);
         }
         [Authorize(Roles = "Broadcaster")]
         [HttpGet]
@@ -64,10 +69,9 @@ namespace StudyWithMe.WebUI.Controllers
                     MaxUsersCount = model.MaxUsersCount,
                 };
 
-                if (group.VideoImage.Count() > 0)
+                if (Request.Form.Files.Count > 0)
                 {
                     IFormFile file = Request.Form.Files.FirstOrDefault();
-
                     using (var dataStream = new MemoryStream())
                     {
                         await file.CopyToAsync(dataStream);

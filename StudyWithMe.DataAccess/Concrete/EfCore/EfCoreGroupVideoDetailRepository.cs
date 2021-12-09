@@ -19,5 +19,14 @@ namespace StudyWithMe.DataAccess.Concrete.EfCore
         {
             get {return _context as StudyWithMeContext; }
         }
+
+        public GroupVideoDetail GetGroupVideoDetail(string url)
+        {
+            return StudyWithMeContext.GroupVideoDetails
+            .Where(i=>i.Url == url)
+            .Include(i=>i.GroupVideoGenres)
+            .ThenInclude(i=>i.Genre)
+            .FirstOrDefault();
+        }
     }
 }
