@@ -27,15 +27,12 @@ namespace StudyWithMe.Business.Concrete
             return false;
         }
 
-        public List<GroupVideoDetail> GetAll()
+        public List<GroupVideoDetail> GetAll(int page,int pageSize)
         {
-            return _unitOfWork.GroupVideoDetails.GetAll();
+            var groupVideos = _unitOfWork.GroupVideoDetails.GetAll();
+            return groupVideos.Skip((page-1)*pageSize).Take(pageSize).ToList();
         }
 
-        // public GroupVideoDetail GetGroupVideoDetail(string url)
-        // {
-        //     _unitOfWork.GroupVideoDetails.GetGroupVideos(url);
-        // }
         public bool Validation(GroupVideoDetail entity)
         {
             var isValid = true;
@@ -49,6 +46,14 @@ namespace StudyWithMe.Business.Concrete
             return isValid;
         }
 
+        public List<GroupVideoDetail> GetGroupVideosByCategory(string name, int page, int pageSize)
+        {
+            return _unitOfWork.GroupVideoDetails.GetGroupVideosByGenre(name,page,pageSize);
+        }
 
+        public int GroupVideosCount()
+        {
+            return _unitOfWork.GroupVideoDetails.GetAll().Count();
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace StudyWithMe.WebUI.ViewModels
 {
     public class GroupVideoViewModel
     {
-        public List<GroupVideoDetail> GroupVideos { get; set; }
         public PageInfo PageInfo { get; set; }
+        public List<GroupVideoDetail> GroupVideos { get; set; }
     }
 }

@@ -32,14 +32,21 @@ namespace StudyWithMe.WebUI.Controllers
             this._genreService = genreService;
             this._groupVideoDetailService = groupVideoDetailService;
         }
-        public IActionResult List()
+        public IActionResult List(int page = 1)
         {
+            int pageSize = 9;
+            var groupVideos = _groupVideoDetailService.GetAll(page, pageSize);
+
+            var pageInfo = new PageInfo(_groupVideoDetailService.GroupVideosCount(), page);
+
             var groupViewModel = new GroupVideoViewModel()
             {
-                GroupVideos = _groupVideoDetailService.GetAll()
+                PageInfo = pageInfo,
+                GroupVideos = groupVideos
             };
             return View(groupViewModel);
         }
+        
         [Authorize(Roles = "Broadcaster")]
         [HttpGet]
         public IActionResult CreateGroup()

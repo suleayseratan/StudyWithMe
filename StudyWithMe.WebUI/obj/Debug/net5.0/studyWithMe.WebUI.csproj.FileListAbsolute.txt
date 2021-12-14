@@ -21,7 +21,6 @@ H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\studyWithMe
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\studyWithMe.WebUI.RazorAssemblyInfo.cache
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\studyWithMe.WebUI.RazorAssemblyInfo.cs
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\staticwebassets\studyWithMe.WebUI.StaticWebAssets.Manifest.cache
-H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\staticwebassets\studyWithMe.WebUI.StaticWebAssets.xml
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\scopedcss\bundle\studyWithMe.WebUI.styles.css
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\studyWithMe.WebUI.TagHelpers.input.cache
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\studyWithMe.WebUI.TagHelpers.output.cache
@@ -100,3 +99,4 @@ H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views\Group\CreateGroup.cshtml.g.cs
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\bin\Debug\net5.0\RestSharp.dll
 H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\Razor\Views\Shared\_groupVideoCard.cshtml.g.cs
+H:\My-Github-Projects\StudyWithMe\StudyWithMe.WebUI\obj\Debug\net5.0\staticwebassets\studyWithMe.WebUI.StaticWebAssets.xml

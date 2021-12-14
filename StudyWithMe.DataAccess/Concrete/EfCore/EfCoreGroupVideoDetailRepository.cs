@@ -28,5 +28,20 @@ namespace StudyWithMe.DataAccess.Concrete.EfCore
             .ThenInclude(i=>i.Genre)
             .FirstOrDefault();
         }
+
+        public List<GroupVideoDetail> GetGroupVideosByGenre(string name, int page, int pageSize)
+        {
+            var groupVideos = StudyWithMeContext
+            .GroupVideoDetails.AsQueryable();
+
+            if(!string.IsNullOrEmpty(name))
+            {
+                groupVideos = groupVideos.Include(i=>i.GroupVideoGenres)
+                .ThenInclude(i=>i.Genre)
+                .Where(i=>i.GroupVideoGenres.Any(a=>a.Genre.Name == name));
+            }
+
+            return groupVideos.Skip((page-1)*pageSize).ToList();
+        }
     }
 }

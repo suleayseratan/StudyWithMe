@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\StudyWithMe.WebUI",
+    "\\StudyWithMe.WebUI\\Controllers",
+    "\\StudyWithMe.WebUI\\Views",
+    "\\StudyWithMe.WebUI\\Views\\Account"
   ],
-  "SelectedNode": "\\StudyWithMe.WebUI",
+  "SelectedNode": "\\StudyWithMe.WebUI\\Views\\Account\\Login.cshtml",
   "PreviewInSolutionExplorer": false
 }

@@ -4,6 +4,11 @@
     var groupVideos = Model.GroupVideos;
 }
 
+@section Css
+{
+  <link rel="stylesheet" href="~/css/toruskit.bundle.css">
+}
+
 <div class="container">
     <div class="row">
         @if (User.IsInRole("Broadcaster"))
@@ -28,6 +33,34 @@
                     </div>
                 </div>
             </div>
+            <ul class="pagination pagination-flush">
+                @if (Model.PageInfo.CurrentPage > 1)
+                {
+                    <li class="page-item active">
+                        <a class="page-link" href="~/groups/list">First</a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link active" href="~/groups/list?page=@(Model.PageInfo.CurrentPage - 1)">Previous</a>
+                    </li>
+                }
+                @for (var page = Model.PageInfo.StartPage; Model.PageInfo.EndPage >= page; page++)
+                {
+                    <li class="page-item @(Model.PageInfo.CurrentPage == page?"active":"")">
+                        <a class="page-link circle circle-md" href="~/groups/list?page=@(page)">
+                            <span>@(page)</span>
+                        </a>
+                    </li>
+                }
+                @if (Model.PageInfo.CurrentPage < Model.PageInfo.TotalItems)
+                {
+                    <li class="page-item active">
+                        <a class="page-link active" href="~/groups/list?page=@(Model.PageInfo.CurrentPage + 1)">Next</a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link active" href="~/groups/list?page=@(Model.PageInfo.TotalPages)">Last</a>
+                    </li>
+                }
+            </ul>
         </div>
     </div>
 </div>
