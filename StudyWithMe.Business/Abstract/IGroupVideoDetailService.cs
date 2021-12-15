@@ -11,8 +11,9 @@ namespace StudyWithMe.Business.Abstract
         bool Create(GroupVideoDetail entity);
         // GroupVideoDetail GetGroupVideoDetail(string url);
         List<GroupVideoDetail> GetAll(int page,int pageSize);
-        List<GroupVideoDetail> GetGroupVideosByCategory(string name, int page, int size);
+        List<GroupVideoDetail> GetGroupVideosByCategory(string name, int page, int pageSize);
         int GroupVideosCount();
+        List<GroupVideoDetail> GetSearchResults(string query, int page, int pageSize);
          
     }
 }

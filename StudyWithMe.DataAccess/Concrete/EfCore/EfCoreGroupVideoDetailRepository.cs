@@ -43,5 +43,13 @@ namespace StudyWithMe.DataAccess.Concrete.EfCore
 
             return groupVideos.Skip((page-1)*pageSize).ToList();
         }
+
+        public List<GroupVideoDetail> GetSearchResults(string query, int page, int pageSize)
+        {
+            var groupVideos = StudyWithMeContext.GroupVideoDetails
+            .Where(i=>i.GroupVideoName.ToLower().Contains(query.ToLower()) || i.Description.ToLower().Contains(query.ToLower())).AsQueryable();
+
+            return groupVideos.ToList();
+        }
     }
 }

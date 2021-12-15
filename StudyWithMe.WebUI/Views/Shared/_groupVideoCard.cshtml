@@ -3,12 +3,18 @@
 <div class="card text-center">
     <img src="data:image/*;base64,@(Convert.ToBase64String(Model.VideoImage))" class="card-img-top" alt="...">
     <h5 class="card-title mt-2">@Model.GroupVideoName</h5>
-    <div class="card-body">
+    <div class="card-body text-start">
         <p class="card-text">
-            @Model.Description
+            @if (Model.Description.Count() >= 20)
+            {
+               @(Model.Description.ToString().Substring(0,20) + "...");
+            }
+            else{
+                @Model.Description.ToString();
+            }
         </p>
     </div>
     <div class="card-footer">
-        <a href="@Model.JoinUrl" class="btn bg-my-blue mb-2 w-75 h-auto" >Join</a>
+        <a href="@Model.JoinUrl" class="btn bg-my-blue mb-2 w-75 h-auto">Join</a>
     </div>
 </div>

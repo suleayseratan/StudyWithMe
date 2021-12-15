@@ -210,7 +210,7 @@ hr.rounded {
     }
 }
 
-/* Group Card */
+/* Create Group Card */
 .group-card{
     margin-top: 4rem;
 }
@@ -245,4 +245,11 @@ hr.rounded {
 
 .textarea-resize {
     resize: none;
+}
+
+/* Group List Card */
+
+div.card img.card-img-top{
+    width: auto;
+    height: 13rem;
 }

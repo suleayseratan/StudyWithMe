@@ -8,18 +8,19 @@
         </h2>
         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
             data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                <div class="input-group">
-                    <input class="form-control border-end-0 border rounded-pill" type="search" value="search"
-                        id="example-search-input">
-                    <span class="input-group-append">
-                        <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5"
-                            type="button">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </span>
+            <form action="/groups/list">
+                <div class="accordion-body">
+                    <div class="input-group">
+                        <input class="form-control border-end-0 border rounded-pill" type="text" value="search" name="query">
+                        <span class="input-group-append">
+                            <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5"
+                                type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
     <div class="accordion-item">
@@ -53,4 +54,3 @@
         </div>
     </div>
 </div>
-

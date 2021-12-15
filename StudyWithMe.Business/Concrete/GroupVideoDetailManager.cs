@@ -55,5 +55,11 @@ namespace StudyWithMe.Business.Concrete
         {
             return _unitOfWork.GroupVideoDetails.GetAll().Count();
         }
+
+        public List<GroupVideoDetail> GetSearchResults(string query, int page, int pageSize)
+        {
+            var serachResult = _unitOfWork.GroupVideoDetails.GetSearchResults(query,page,pageSize);
+            return serachResult.Skip((page-1)*pageSize).Take(pageSize).ToList();
+        }
     }
 }

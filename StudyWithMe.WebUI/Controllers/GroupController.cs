@@ -35,17 +35,13 @@ namespace StudyWithMe.WebUI.Controllers
             this._groupVideoDetailService = groupVideoDetailService;
             this._zoomClient = zoomClient;
         }
-        public IActionResult List(int page = 1)
+        public IActionResult List(string query, int page = 1)
         {
             int pageSize = 9;
-            var groupVideos = _groupVideoDetailService.GetAll(page, pageSize);
-
-            var pageInfo = new PageInfo(_groupVideoDetailService.GroupVideosCount(), page);
-
             var groupViewModel = new GroupVideoViewModel()
             {
-                PageInfo = pageInfo,
-                GroupVideos = groupVideos
+                GroupVideos = query == null?_groupVideoDetailService.GetAll(page,pageSize):_groupVideoDetailService.GetSearchResults(query,page, pageSize),
+                PageInfo = new PageInfo(query == null?_groupVideoDetailService.GroupVideosCount():_groupVideoDetailService.GetSearchResults(query,page, pageSize).Count(), page)
             };
             return View(groupViewModel);
         }
