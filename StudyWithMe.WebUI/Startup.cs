@@ -18,6 +18,7 @@ using StudyWithMe.DataAccess.Abstract;
 using StudyWithMe.DataAccess.Concrete.EfCore;
 using StudyWithMe.WebUI.EmailServices;
 using StudyWithMe.WebUI.Identity;
+using StudyWithMe.WebUI.ZoomAPI;
 
 namespace studyWithMe.WebUI
 {
@@ -70,11 +71,13 @@ namespace studyWithMe.WebUI
                     SameSite = SameSiteMode.Strict, // cross site ataklarını engellemek için kullanılır
                 };
             });
-            
+
             services.AddScoped<IUnitOfWork,UnitOfWork>();
 
             services.AddScoped<IGenreService,GenreManager>();
             services.AddScoped<IGroupVideoDetailService,GroupVideoDetailManager>();
+
+            
             
             services.AddScoped<IEmailSender,SmtpEmailSender>(i =>
                 new SmtpEmailSender(
@@ -84,7 +87,12 @@ namespace studyWithMe.WebUI
                     _configuration["EmailSender:UserName"],
                     _configuration["EmailSender:Password"])
             );
-            
+            services.AddScoped<IZoomClient,ZoomClient>(i => 
+                new ZoomClient(
+                    _configuration["ZoomAPI:APISecret"],
+                    _configuration["ZoomAPI:BaseURL"]
+                )
+            );
             services.AddControllersWithViews();
         }
         

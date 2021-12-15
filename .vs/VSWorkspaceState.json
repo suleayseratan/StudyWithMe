@@ -2,10 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\StudyWithMe.WebUI",
-    "\\StudyWithMe.WebUI\\Controllers",
-    "\\StudyWithMe.WebUI\\Views",
-    "\\StudyWithMe.WebUI\\Views\\Account"
+    "\\StudyWithMe.WebUI\\ZoomAPI"
   ],
-  "SelectedNode": "\\StudyWithMe.WebUI\\Views\\Account\\Login.cshtml",
+  "SelectedNode": "\\StudyWithMe.WebUI\\ZoomAPI\\IZoomClient.cs",
   "PreviewInSolutionExplorer": false
 }
